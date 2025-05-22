@@ -1,4 +1,5 @@
 import pygame
+from player import Player
 from constants import (SCREEN_WIDTH,
                        SCREEN_HEIGHT,
                        ASTEROID_MIN_RADIUS,
@@ -21,6 +22,11 @@ def main():
     fps = pygame.time.Clock()
     # init variable for delta time
     dt = 0
+    
+    # init player 1
+    x1 = SCREEN_WIDTH / 2
+    y1 = SCREEN_HEIGHT / 2
+    p1 = Player(x1, y1)
 
     # Begin game loop
     while True:
@@ -30,10 +36,16 @@ def main():
                 return
 
             # set and capture the frame rate each iteration
-            dt = fps.tick(60)/1000
+        dt = fps.tick(60)/1000
 
         # set the background to black
         screen.fill("black")
+        
+        # draw the player
+        p1.draw(screen)
+        
+        
+        # update the display
         pygame.display.flip()
 
 
