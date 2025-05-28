@@ -1,4 +1,5 @@
 import pygame
+import sys
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
@@ -54,6 +55,9 @@ def main():
         # call update on updatables before render
         updatables.update(dt)
 
+        for asteroid in asteroids:
+            if asteroid.collision(p1):
+                sys.exit("Game Over!")
         # draw the drawables group
         for drawable in drawables:
             drawable.draw(screen)
