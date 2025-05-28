@@ -21,7 +21,7 @@ class CircleShape(pygame.sprite.Sprite):
     def update(self, dt):
         # sub-classes must override
         pass
-    
+
     def collision(self, other):
         # all things that collide inherit this
         combined_radii = self.radius + other.radius
